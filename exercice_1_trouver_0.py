@@ -10,8 +10,8 @@ def secante ( fonction, xn, b ) :
     
 ### Choix de la fonction à tester (décommenter celle voulue) ###
 
-#trouver_0 = dichotomie
-trouver_0 = secante
+trouver_0 = dichotomie
+#trouver_0 = secante
     
 ### Les fonctions à tester (ne pas modifier !) ###
 print()
