@@ -3,26 +3,10 @@ from math import *
 ### Deux méthodes pour trouver x tel que f(x) = 0 (à compléter) ###
 
 def dichotomie ( fonction, a, b ) :
-    i = 0
-    while ( a != b and i < 100 ) :
-        i = i+1
-        c = ( a + b ) / 2
-        if ( fonction ( a ) * fonction ( c ) <= 0 ) :
-            b = c
-        else :
-            a = c
-        
-    return c
+    return 0
     
 def secante ( fonction, xn, b ) :
-    i = 0
-    while ( fonction(xn) != 0 and i < 100 ) :
-        i = i+1
-        num = b - xn
-        denom = fonction(b)-fonction(xn)
-        xn = xn - (num/denom)*fonction(xn)
-    
-    return xn
+    return 0
     
 ### Choix de la fonction à tester (décommenter celle voulue) ###
 
