@@ -1,40 +1,26 @@
 from math import *
+
+### Variables globales ###
 epsilon = 10**(-15)
+pas = 0.1
 
-### Deux méthodes pour trouver x tel que f(x) = 0 (à compléter) ###
-
+### Deux fonctions pour trouver x tel que f(x) = 0 ###
+### et une fonction pour trouver tous les zéros    ###
+### (à compléter)                                  ###
 def dichotomie ( fonction, a, b ) :
-    i = 0
-    while ( a != b and i < 100 ) :
-        i = i+1
-        c = (a+b)/2
-        if ( fonction(a)*fonction(c) <= 0 ) :
-            b = c
-        else :
-            a = c
-    return c
+    return 0
     
 def secante ( fonction, xn, b ) :
     return 0
  
 def multiple ( fonction, u, v, pas ) :
-    res = []
-    a = u
-    b = a+pas-epsilon
-    while ( b < v ) :
-        if ( fonction(a)*fonction(b) <= 0 ) :
-            res.append( dichotomie( fonction, a, b ) )
-        a += pas
-        b = a+pas-epsilon
-    
-    return res
+    return []
     
 ### Choix de la fonction à tester (décommenter celle voulue) ###
 
-#trouver_0 = dichotomie
+trouver_0 = dichotomie
 #trouver_0 = secante
-trouver_0 = multiple
-pas = 1
+#trouver_0 = multiple
     
 ### Les fonctions à tester (ne pas modifier !) ###
 
