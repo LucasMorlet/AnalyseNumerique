@@ -1,95 +1,195 @@
 from math import *
+epsilon = 10**(-15)
 
 ### Deux méthodes pour trouver x tel que f(x) = 0 (à compléter) ###
 
 def dichotomie ( fonction, a, b ) :
-    return 0
+    i = 0
+    while ( a != b and i < 100 ) :
+        i = i+1
+        c = (a+b)/2
+        if ( fonction(a)*fonction(c) <= 0 ) :
+            b = c
+        else :
+            a = c
+    return c
     
 def secante ( fonction, xn, b ) :
     return 0
+ 
+def multiple ( fonction, u, v, pas ) :
+    res = []
+    a = u
+    b = a+pas-epsilon
+    while ( b < v ) :
+        if ( fonction(a)*fonction(b) <= 0 ) :
+            res.append( dichotomie( fonction, a, b ) )
+        a += pas
+        b = a+pas-epsilon
+    
+    return res
     
 ### Choix de la fonction à tester (décommenter celle voulue) ###
 
-trouver_0 = dichotomie
+#trouver_0 = dichotomie
 #trouver_0 = secante
+trouver_0 = multiple
+pas = 1
     
 ### Les fonctions à tester (ne pas modifier !) ###
-print()
 
 # Identité
 def identite ( x ) :
-    return x
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return x
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( x[i] )
+        return res
     
+# Sinus
+def sinus ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return sin(x)
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( sin( x[i] ) )
+        return res
+    
+# Cosinus  
+def cosinus ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return cos(x)
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( cos( x[i] ) )
+        return res
+    
+# Tangente
+def tangente ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return tan(x)
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( tan( x[i] ) )
+        return res
+    
+# Linéaire
+def lineaire ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return -2*x + 5
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( lineaire( x[i] ) )
+        return res
+    
+# Quadratique 
+def quadratique ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return -3*x*x + 5*x - 1
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( quadratique( x[i] ) )
+        return res
+    
+# Cubique
+def cubique ( x ) :
+    if ( isinstance ( x, float ) or isinstance ( x, int ) ) :
+        return x*x*x + 2*x*x - 6*x + 3
+    else : 
+        res = []
+        for i in range ( len ( x ) ) :
+            res.append ( cubique( x[i] ) )
+        return res
+
+### L'affichage (ne pas modifier !) ###
+print()
+
+if ( trouver_0 == dichotomie ) :
+    print ( "*** Dichotomie ***\n" )
+elif ( trouver_0 == secante ) :
+    print ( "*** Sécante ***\n" )
+else :
+    print ( "*** Recherche multiple ***\n" )
+   
 print ( "f(x) = x" ) 
-print ( "[-1 ; 1]" ) 
-x = trouver_0( identite, -1, 1 )
+if ( trouver_0 != multiple ) :
+    print ( "[-1 ; 1]" ) 
+    x = trouver_0( identite, -1, 1 )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( identite, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", identite(x) )
 print()
-
-# Sinus
-def sinus ( x ) :
-    return sin(x)
-    
+  
 print ( "f(x) = sin(x)" ) 
-print ( "[-PI/2 ; PI/2]" ) 
-x = trouver_0( sinus, -pi/2, pi/2 )
+if ( trouver_0 != multiple ) :
+    print ( "[-PI/2 ; PI/2]" ) 
+    x = trouver_0( sinus, -pi/2, pi/2 )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( sinus, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", sinus(x) )
 print()
-  
-# Cosinus  
-def cosinus ( x ) :
-    return cos(x)
     
 print ( "f(x) = cos(x)" ) 
-print ( "[0 ; PI]" ) 
-x = trouver_0( cosinus, 0, pi )
+if ( trouver_0 != multiple ) :
+    print ( "[0 ; PI]" ) 
+    x = trouver_0( cosinus, 0, pi )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( cosinus, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", cosinus(x) )
 print()
-
-# Tangente
-def tangente ( x ) :
-    return tan(x)
-    
-print ( "f(x) = tan(x)" ) 
-print ( "[-PI/2 ; PI/2]" ) 
-x = trouver_0( tan, -pi/2, pi/2 )
-print ( "x =", x )
-print ( "f(x) =", tangente(x) )
+  
+if ( trouver_0 != multiple ) :  
+    print ( "f(x) = tan(x)" ) 
+    print ( "[-PI/2 ; PI/2]" ) 
+    x = trouver_0( tan, -pi/2, pi/2 )
+    print ( "x =", x )
+    print ( "f(x) =", tangente(x) )
+else :
+    print ( "Pas d'étude de la tangente car la fonction est discontinue" )
 print()
-
-# Linéaire
-def lineaire ( x ) :
-    return -2*x + 5
     
-print ( "f(x) = -2x + 5" ) 
-print ( "[2 ; 3]" ) 
-x = trouver_0( lineaire, 2, 3 )
+print ( "f(x) = -2x + 5" )
+if ( trouver_0 != multiple ) : 
+    print ( "[2 ; 3]" ) 
+    x = trouver_0( lineaire, 2, 3 )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( lineaire, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", lineaire(x) )
 print()
-
-# Quadratique 
-def quadratique ( x ) :
-    return -3*x*x + 5*x - 1
     
 print ( "f(x) = -3*x^2 + 5x -1" ) 
-print ( "[1 ; 2]" ) 
-x = trouver_0( quadratique, 1, 2 )
+if ( trouver_0 != multiple ) :
+    print ( "[1 ; 2]" ) 
+    x = trouver_0( quadratique, 1, 2 )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( quadratique, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", quadratique(x) )
 print()
-
-
-# Cubique
-def cubique ( x ) :
-    return x*x*x + 2*x*x - 6*x + 3
     
 print ( "f(x) = x^3 + 2x^2 - 6x + 3 " ) 
-print ( "[-5 ; -3]" ) 
-x = trouver_0( cubique, -5, -3 )
+if ( trouver_0 != multiple ) :
+    print ( "[-5 ; -3]" ) 
+    x = trouver_0( cubique, -5, -3 )
+else :
+    print ( "[-5 ; 5[" ) 
+    x = trouver_0( cubique, -5, 5, pas )
 print ( "x =", x )
 print ( "f(x) =", cubique(x) )
 print()
