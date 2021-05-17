@@ -1,13 +1,19 @@
 import numpy as np
 
 def resolution_diagonale ( A, b ) :
-    return np.array([0.0]*len(A))
+    x = np.array([0.0]*len(A)) # Création d'un vecteur nul de la bonne dimension
+    # Modifier x ici
+    return x
     
 def resolution_inferieure ( A, b ) :
-    return np.array([0.0]*len(A))
+    x = np.array([0.0]*len(A))
+    # Modifier x ici
+    return x
     
 def resolution_superieure ( A, b ) :
-    return np.array([0.0]*len(A)) 
+    x = np.array([0.0]*len(A))
+    # Modifier x ici
+    return x 
     
 def resolution_gauss ( A, b ) :
     return np.array([0.0]*len(A))
