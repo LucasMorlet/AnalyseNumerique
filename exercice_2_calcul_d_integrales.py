@@ -19,13 +19,7 @@ def rectangle_au_milieu ( fonction, a, b, nb_rectangles ) :
     return 0
 
 def trapeze ( f, a, b, n ) :
-    pas = (b-a) / n
-    x = a
-    somme = (f(a) + f(b)) / 2
-    for _ in range(n-1):
-        x += pas
-        somme += f(x)
-    return somme / n
+    return 0
     
 def monte_carlo ( fonction, a, b, nb_intervalles ) :
     return 0
