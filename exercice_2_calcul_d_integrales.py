@@ -10,18 +10,23 @@ def aleatoire ( mini, maxi ) :
 
 ### Quatre fonctions de calcul de l'intégrale par approche géométrique (à compléter) ###
 def rectangle_a_droite ( fonction, a, b, nb_rectangles ) :
+    # TODO question 2.2a
     return 0
 
 def rectangle_a_gauche ( fonction, a, b, nb_rectangles ) :
+    # TODO question 2.2b
     return 0
     
 def rectangle_au_milieu ( fonction, a, b, nb_rectangles ) :
+    # TODO question 2.2c
     return 0
 
 def trapeze ( f, a, b, n ) :
+    # TODO question 2.3
     return 0
     
 def monte_carlo ( fonction, a, b, nb_intervalles ) :
+    # TODO question 2.4
     return 0
     
 ### Les fonctions à tester (ne pas modifier !) ###

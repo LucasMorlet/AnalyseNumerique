@@ -8,12 +8,15 @@ pas = 0.1
 ### et une fonction pour trouver tous les zéros    ###
 ### (à compléter)                                  ###
 def dichotomie ( fonction, a, b ) :
+    # TODO question 1.2
     return 0
     
 def secante ( fonction, xn, b ) :
+    # TODO question 1.3
     return 0
  
 def multiple ( fonction, u, v, pas ) :
+    # TODO question 1.4
     return []
     
 ### Choix de la fonction à tester (décommenter celle voulue) ###
